@@ -1,0 +1,38 @@
+.mainNav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
+}
+
+.mainNav a {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.mainNav a.router-link-exact-active {
+    color: #42b983;
+}
+
+.mainNav-item {
+    text-decoration: none;
+    margin-right: 0.5rem;
+}
+
+.fa-user-circle {
+    margin-right: 0.2rem;
+}
+
+.mainNavItem:hover {
+    text-decoration: underline;
+}
+
+.mainNavLogo {
+    display: flex;
+    align-items: center;
+}
+
+.mainNavLogoImage {
+    max-width: 100%;
+    width: 200px;
+}
