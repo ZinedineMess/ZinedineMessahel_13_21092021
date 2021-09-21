@@ -1,11 +1,11 @@
 import Banner from 'components/Banner/Banner';
 import { FEATURES_CARDS_CONTENT } from 'data/data';
 import FeatureItem from 'components/FeatureItem/FeatureItem';
-import React, { Fragment } from 'react';
+import React from 'react';
 
 function HomePage() {
     return (
-        <Fragment>
+        <main>
             <Banner />
             <section className="features">
                 <h2 className="sr-only">Features</h2>
@@ -19,7 +19,7 @@ function HomePage() {
                     />
                 ))}
             </section>
-        </Fragment>
+        </main>
     )
 }
 

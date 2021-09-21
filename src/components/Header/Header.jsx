@@ -12,7 +12,7 @@ return (
                 <h1 className="sr-only">Argent Bank</h1>
             </Link>
             <div>
-                <Link to='/' className="mainNavItem" >
+                <Link to='/login' className="mainNavItem" >
                     <i className="fa fa-user-circle"></i>
                     Sign In
                 </Link>
