@@ -1,27 +1,27 @@
-form>a {
-    text-decoration: none;
-}
-
 .inputRemember {
     display: flex;
 }
 
 .inputRemember label {
-    margin-left: 0.25rem;
+    margin-left: .25rem;
 }
 
 .inputWrapper {
     display: flex;
     flex-direction: column;
-    text-align: left;
     margin-bottom: 1rem;
-}
-
-.inputWrapper label {
-    font-weight: bold;
+    text-align: left;
 }
 
 .inputWrapper input {
-    padding: 5px;
     font-size: 1.2rem;
+    padding: .3125rem;
+}
+
+.inputWrapper label {
+    font-weight: 700;
+}
+
+form>a {
+    text-decoration: none;
 }

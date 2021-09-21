@@ -1,13 +1,17 @@
+.fa-user-circle {
+    margin-right: .4rem;
+}
+
 .mainNav {
+    align-items: center;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 5px 20px;
+    padding: .3125rem 1.25rem;
 }
 
 .mainNav a {
-    font-weight: bold;
     color: #2c3e50;
+    font-weight: 700;
 }
 
 .mainNav a.router-link-exact-active {
@@ -15,12 +19,8 @@
 }
 
 .mainNav-item {
+    margin-right: .5rem;
     text-decoration: none;
-    margin-right: 0.5rem;
-}
-
-.fa-user-circle {
-    margin-right: 0.4rem;
 }
 
 .mainNavItem:hover {
@@ -28,11 +28,11 @@
 }
 
 .mainNavLogo {
-    display: flex;
     align-items: center;
+    display: flex;
 }
 
 .mainNavLogoImage {
     max-width: 100%;
-    width: 200px;
+    width: 12.5rem;
 }

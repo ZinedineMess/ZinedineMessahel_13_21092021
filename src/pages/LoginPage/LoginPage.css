@@ -1,9 +1,9 @@
 .signInContent {
+    background-color: #FFF;
     box-sizing: border-box;
-    background-color: white;
-    width: 300px;
-    margin: 3rem auto 0 auto;
+    margin: 3rem auto 0;
     padding: 2rem;
+    width: 18.75rem;
 }
 
 .signInIcon {
