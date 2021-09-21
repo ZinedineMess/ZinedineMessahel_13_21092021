@@ -7,8 +7,8 @@ function HomePage() {
     return (
         <main>
             <Banner />
-            <section className="features">
-                <h2 className="sr-only">Features</h2>
+            <section className='features'>
+                <h2 className='sr-only'>Features</h2>
                 {FEATURES_CARDS_CONTENT.map(({ id, imgSrc, imgAlt, title, description }) => (
                     <FeatureItem
                         key = {id}
