@@ -1,4 +1,5 @@
-.fa-user-circle {
+.fa-user-circle,
+.fa-sign-out-alt {
     margin-right: .4rem;
 }
 
@@ -18,7 +19,7 @@
     color: #42b983;
 }
 
-.mainNav-item {
+.mainNavItem {
     margin-right: .5rem;
     text-decoration: none;
 }
@@ -35,4 +36,20 @@
 .mainNavLogoImage {
     max-width: 100%;
     width: 12.5rem;
+}
+
+.navLog {
+    display: flex;
+}
+
+@media (max-width: 720px) {
+    .navLog {
+        display: flex;
+        flex-direction: column;
+        font-size: .8rem;
+    }
+
+    .navLog div {
+        flex-direction: row;
+    }
 }

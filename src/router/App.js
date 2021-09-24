@@ -1,31 +1,42 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Switch } from 'react-router-dom';
+import { connect } from 'react-redux'
 import Footer from 'components/Footer/Footer';
 import Header from 'components/Header/Header';
-import HomePage from 'pages/HomePage/HomePage';
-import LoginPage from 'pages/LoginPage/LoginPage';
-import ProfilePage from 'pages/ProfilePage/ProfilePage';
+import Login from 'pages/Login/Login';
+import PropTypes from 'prop-types';
 import 'router/App.css';
+import { routes } from 'router/routes';
+import { SubRoutes } from 'router/SubRoutes';
 
-function App() {
-  return (
-      <div className='App'>
-        <Router>
-        <Header />
-            <Switch>
-              <Route exact path='/'>
-                <HomePage />
-              </Route>
-              <Route exact path='/login'>
-                <LoginPage />
-              </Route>
-              <Route exact path='/profile'>
-                <ProfilePage />
-              </Route>
-            </Switch>
-            <Footer />
-        </Router>
-      </div>  
-  );
+function App(props) {
+    return (
+        <div className="App">
+            <Router>
+                    <Header />
+                    <Switch>
+                        {routes.map((route, index) =>
+                            !props.connected && route.private 
+                            ? (
+                                <Login key={index} exact path={route.path} />
+                            ) : (
+                                <SubRoutes key={index} {...route} />
+                            )
+                        )}
+                    </Switch>
+                    <Footer />
+            </Router>
+        </div>
+    );
 }
 
-export default App;
+const mapStateToProps = state => {
+    return {
+        connected: state.user.connected,
+    }
+}
+
+App.propTypes = {
+    connected : PropTypes.bool.isRequired,
+}
+
+export default connect(mapStateToProps)(App);

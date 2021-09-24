@@ -1,9 +1,14 @@
-.editButton {
+.editButton,
+.errorMessagesContainer button {
     background-color: #00bc77;
     border-color: #00bc77;
     color: #fff;
     font-weight: 700;
     padding: .625rem;
+}
+
+.errorMessagesContainer button {
+    margin: 4rem 0 0;
 }
 
 .signInButton,

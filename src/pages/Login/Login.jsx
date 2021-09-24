@@ -1,8 +1,8 @@
 import LoginForm from 'components/LoginForm/LoginForm';
-import 'pages/LoginPage/LoginPage.css';
+import 'pages/Login/Login.css';
 import React from 'react';
 
-function LoginPage() {
+function Login() {
     return (
         <main className='main backgroundDark'>
             <section className='signInContent'>
@@ -14,4 +14,4 @@ function LoginPage() {
     )
 }
 
-export default LoginPage;
+export default Login;

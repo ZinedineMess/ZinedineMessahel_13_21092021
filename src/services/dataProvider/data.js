@@ -1,6 +1,6 @@
-import pictoChat from 'assets/picto/pictoChat.png';
-import pictoMoney from 'assets/picto/pictoMoney.png';
-import pictoShield from 'assets/picto/pictoShield.png';
+import pictoChat from 'assets/pictoChat.png';
+import pictoMoney from 'assets/pictoMoney.png';
+import pictoShield from 'assets/pictoShield.png';
 
 export const FEATURES_CARDS_CONTENT = [{
         id: 'feature-01',

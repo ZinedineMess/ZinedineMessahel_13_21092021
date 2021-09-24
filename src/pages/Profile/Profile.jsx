@@ -1,12 +1,12 @@
-import { ACCOUNTS_CONTENT } from 'data/data';
+import { ACCOUNTS_CONTENT } from 'services/dataProvider/data';
 import Card from 'components/Card/Card';
-import ProfileHeader from 'components/ProfileHeader/ProfileHeader';
+import UserProfileHeader from 'components/UserProfileHeader/UserProfileHeader';
 import React from 'react';
 
-function ProfilePage() {
+function Profile() {
     return (
         <main className='main backgroundDark'>
-            <ProfileHeader />
+            <UserProfileHeader />
             <h2 className='sr-only'>Accounts</h2>
             {ACCOUNTS_CONTENT.map(({ id, title, amount, description }) => (
                     <Card
@@ -20,4 +20,4 @@ function ProfilePage() {
     )
 }
 
-export default ProfilePage;
+export default Profile;

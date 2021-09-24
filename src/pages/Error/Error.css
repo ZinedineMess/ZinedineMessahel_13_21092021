@@ -1,0 +1,25 @@
+.error404Main {
+    padding: 3rem;
+}
+
+.errorMessagesContainer {
+    align-items: center;
+}
+
+.errorMessagesContainer a {
+    text-decoration: none;
+}
+
+.errorMessagesContainer h2 {
+    font-size: 8rem;
+}
+
+.errorMessagesContainer p {
+    font-size: 1.2rem;
+    margin: 0 4rem;
+}
+
+.errorMessagesContainer>div {
+    padding: 6rem;
+    width: 50%;
+}

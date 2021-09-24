@@ -1,9 +1,9 @@
 import Banner from 'components/Banner/Banner';
-import { FEATURES_CARDS_CONTENT } from 'data/data';
+import { FEATURES_CARDS_CONTENT } from 'services/dataProvider/data';
 import FeatureItem from 'components/FeatureItem/FeatureItem';
 import React from 'react';
 
-function HomePage() {
+function Home() {
     return (
         <main>
             <Banner />
@@ -23,4 +23,4 @@ function HomePage() {
     )
 }
 
-export default HomePage;
+export default Home;
