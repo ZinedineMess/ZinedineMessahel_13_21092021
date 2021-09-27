@@ -6,11 +6,11 @@ import React from 'react';
 function Card({title, amount, description}) {
     return (
         <section className='account'>
-            <div className='accountContentWrapper'>
+            <article className='accountContentWrapper'>
                 <h3 className='accountTitle'>{title}</h3>
                 <p className='accountAmount'>{amount}</p>
                 <p className='accountAmountDescription'>{description}</p>
-            </div>
+            </article>
             <div className='accountContentWrapper cta'>
                 <Button className='transactionButton' text='View transactions'/>
             </div>

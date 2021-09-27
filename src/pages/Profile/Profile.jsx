@@ -1,4 +1,4 @@
-import { ACCOUNTS_CONTENT } from 'services/dataProvider/data';
+import { ACCOUNTS_CONTENT } from 'utils/data/data';
 import Card from 'components/Card/Card';
 import UserProfileHeader from 'components/UserProfileHeader/UserProfileHeader';
 import React from 'react';

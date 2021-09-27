@@ -1,6 +1,7 @@
 import ApiProvider from 'services/ApiProvider/ApiProvider';
 import Button from 'components/Button/Button';
 import 'components/LoginForm/LoginForm.css';
+import Input from 'components/Input/Input';
 import { logIn } from 'features/userSlice';
 import React from 'react';
 import { useDispatch } from 'react-redux';
@@ -31,32 +32,29 @@ function LoginForm() {
             return setErrorMessage(response.message);
         }
         dispatch(logIn(response.data.body.token));
-        history.push('/profile');
+        history.push('/user/profile');
     }
 
     return (
         <form onSubmit={handleSubmit}>
             <div className='inputWrapper'>
                 <label htmlFor='username'>Username</label>
-                <input 
+                <Input 
+                    className="username"
                     type='text' 
-                    id='username' 
                     autoComplete="current-username"
                     value={userName}
-                    onChange={(e) => {
-                        setUserName(e.target.value);
-                    }} />
+                    action={(e) => {setUserName(e.target.value)}}
+                />
             </div>
             <div className='inputWrapper'>
                 <label htmlFor='password'>Password</label>
-                <input 
+                <Input 
+                    className="password"
                     type='password' 
-                    id='password' 
-                    autoComplete="current-password"
+                    autoComplete="current-username"
                     value={password}
-                    onChange={(e) => {
-                        setPassword(e.target.value);
-                    }}
+                    action={(e) => {setPassword(e.target.value)}}
                 />
             </div>
             <div className='inputRemember'>

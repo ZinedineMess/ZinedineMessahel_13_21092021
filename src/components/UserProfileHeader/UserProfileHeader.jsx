@@ -2,6 +2,7 @@ import ApiProvider from 'services/ApiProvider/ApiProvider';
 import Button from 'components/Button/Button';
 import 'components/UserProfileHeader/UserProfileHeader.css';
 import { connect } from 'react-redux';
+import Input from 'components/Input/Input';
 import { setUser, updateUser } from 'features/userSlice';
 import { useDispatch } from 'react-redux';
 import React, { Fragment } from 'react';
@@ -10,7 +11,7 @@ function UserProfileHeader(props) {
     const [editName, setEditName] = React.useState(false);
     const [firstName, setFirstName] = React.useState('');
     const [lastName, setLastName] = React.useState('');
-    const [errorMsg, setError] = React.useState('');
+    const [errorMessage, setError] = React.useState('');
 
     const dispatch = useDispatch();
 
@@ -38,34 +39,34 @@ function UserProfileHeader(props) {
         dispatch(updateUser(response.data.body));
         setEditName(false);
     }
-
+    
     return (
         <section className='headerProfile'>
             {editName 
                 ? (
                 <Fragment>
                     <h1>Welcome back</h1>
-                    {errorMsg.length > 0 && <div className='error-msg'>{errorMsg}</div>}
-                    <input 
-                        placeholder={firstName} 
-                        type='text' 
+                    {errorMessage.length > 0 && <div className='error-msg'>{errorMessage}</div>}
+                    <Input 
                         className='headerProfileInput' 
-                        onChange={(e)=> setFirstName(e.target.value)}
+                        type='text'
+                        placeholder={firstName}
+                        action={(e)=> setFirstName(e.target.value)}
                     />
-                    <input 
-                        placeholder={lastName} 
-                        type='text' 
+                    <Input 
                         className='headerProfileInput' 
-                        onChange={(e)=> setLastName(e.target.value)}
+                        type='text'
+                        placeholder={lastName}
+                        action={(e)=> setLastName(e.target.value)}
                     />
                     <br />
                     <Button 
-                        className='editButton'
-                        text='Confirm'
+                        className='buttonEdited'
+                        text='Save'
                         action={() => changeUserProfile()}
                         />
                     <Button 
-                        className='editButton' 
+                        className='buttonEdited' 
                         text='Cancel' 
                         action={() => setEditName(false)}
                         />
@@ -75,7 +76,7 @@ function UserProfileHeader(props) {
                     <h1>
                         Welcome back <br />
                         {props.user.firstName} {props.user.lastName}
-                        {errorMsg.length > 0 && <div className='error-msg'>{errorMsg}</div>}
+                        {errorMessage.length > 0 && <div className='error-msg'>{errorMessage}</div>}
                     </h1>
                     <Button 
                         className='editButton' 

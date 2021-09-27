@@ -22,7 +22,7 @@ function Header(props) {
                 ? (
                     <Fragment>
                         <div>
-                            <Link to='/profile' className='mainNavItem' >
+                            <Link to='/user/profile' className='mainNavItem' >
                                 <i className='fa fa-user-circle'></i>
                                 {props.user.firstName}
                             </Link>
