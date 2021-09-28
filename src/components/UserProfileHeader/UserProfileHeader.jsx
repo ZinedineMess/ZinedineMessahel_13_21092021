@@ -3,39 +3,56 @@ import Button from 'components/Button/Button';
 import 'components/UserProfileHeader/UserProfileHeader.css';
 import { connect } from 'react-redux';
 import Input from 'components/Input/Input';
-import { setUser, updateUser } from 'features/userSlice';
+import { setUser, updateUser } from 'utils/features/userSlice';
 import { useDispatch } from 'react-redux';
-import React, { Fragment } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 
 function UserProfileHeader(props) {
-    const [editName, setEditName] = React.useState(false);
-    const [firstName, setFirstName] = React.useState('');
-    const [lastName, setLastName] = React.useState('');
-    const [errorMessage, setError] = React.useState('');
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
+    const [editName, setEditName] = useState(false);
 
     const dispatch = useDispatch();
 
-    React.useEffect(() => {
+    useEffect(() => {
+        /**
+         * Call the ApiProvider, which will execute a POST request to the ArgentBank API with the jwtToken
+         * If the authentication by the jwtToken is correct, we recover the user's data
+         * Otherwise an error message is displayed
+         * @param {object} e Event
+         * @return {void}
+         */
         const getProfile = async (e) => {
-        const response = await new ApiProvider().getUserProfile();
+            // POST request
+            const response = await new ApiProvider().getUserProfile();
 
-        if (response.status !== 200) {
-            return setError('Error user : ' + response.statusText);
+            if (response.status !== 200) {
+                return setErrorMessage('Error user : ' + response.statusText);
+            }
+            
+            dispatch(setUser(response.data.body));
+            setFirstName(response.data.body.firstName);
+            setLastName(response.data.body.lastName);
+            setErrorMessage('');
         }
-        dispatch(setUser(response.data.body));
-        setFirstName(response.data.body.firstName);
-        setLastName(response.data.body.lastName);
-        setError('');
-    }
-    getProfile().then();
+        getProfile();
     }, [dispatch]);
 
+    /**
+     * Sends' 'firstName' & 'lastName' data to the ApiProvider, which will execute a POST request to the ArgentBank API
+     * If the request is successful, we update the user's information
+     * Otherwise an error message is displayed
+     * @return {void}
+     */
     async function changeUserProfile() {
+        // Send PUT request
         const response = await new ApiProvider().setUserProfile(firstName, lastName);
         
         if (response.status !== 200) {
-            return setError('Error updating user : ' + response.statusText);
+            return setErrorMessage('Error updating user : ' + response.statusText);
         }
+
         dispatch(updateUser(response.data.body));
         setEditName(false);
     }
@@ -86,7 +103,7 @@ function UserProfileHeader(props) {
                 </Fragment>
             )}
         </section>
-    )
+    );
 }
 
 const mapStateToProps = state => {

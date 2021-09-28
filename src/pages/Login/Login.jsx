@@ -11,7 +11,7 @@ function Login() {
                 <LoginForm />
             </section>
         </main>
-    )
+    );
 }
 
 export default Login;

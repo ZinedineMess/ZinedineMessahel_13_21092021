@@ -2,7 +2,7 @@ import 'components/Header/Header.css';
 import { connect, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import logo from 'assets/logo.png';
-import { logOut } from 'features/userSlice';
+import { logOut } from 'utils/features/userSlice';
 import PropTypes from 'prop-types';
 import React, { Fragment } from 'react';
 
@@ -49,14 +49,14 @@ function Header(props) {
                 </nav>
             </nav>
         </header>
-    )
+    );
 }
 
 const mapStateToProps = state => {
     return {
         connected: state.user.connected,
         user: state.user.user,
-    }
+    };
 }
 
 Header.propTypes = {

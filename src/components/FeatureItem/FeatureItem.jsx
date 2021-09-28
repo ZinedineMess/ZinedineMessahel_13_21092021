@@ -9,7 +9,7 @@ function FeatureItem({imgSrc, imgAlt, title, description}) {
             <h3 className='featureItemTitle'>{title}</h3>
             <p>{description}</p>
         </article>
-    )
+    );
 }
 
 FeatureItem.propTypes = {

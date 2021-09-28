@@ -7,7 +7,7 @@ function Button({ className, text, action}) {
         <button className={className} onClick={action} >
             {text}
         </button>
-    )
+    );
 }
 
 Button.propTypes = {

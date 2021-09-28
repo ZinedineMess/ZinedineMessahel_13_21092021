@@ -15,7 +15,7 @@ function Card({title, amount, description}) {
                 <Button className='transactionButton' text='View transactions'/>
             </div>
         </section>
-    )
+    );
 }
 
 Card.propTypes = {

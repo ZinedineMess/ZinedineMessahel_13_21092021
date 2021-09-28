@@ -4,6 +4,7 @@ import Footer from 'components/Footer/Footer';
 import Header from 'components/Header/Header';
 import Login from 'pages/Login/Login';
 import PropTypes from 'prop-types';
+import React from 'react';
 import 'router/App.css';
 import { routes } from 'router/routes';
 import { SubRoutes } from 'router/SubRoutes';
@@ -32,7 +33,7 @@ function App(props) {
 const mapStateToProps = state => {
     return {
         connected: state.user.connected,
-    }
+    };
 }
 
 App.propTypes = {

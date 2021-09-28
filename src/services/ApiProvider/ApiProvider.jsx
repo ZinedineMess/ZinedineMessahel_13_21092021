@@ -5,6 +5,14 @@ import {
 } from 'utils/constants/constants';
 
 class ApiProvider {
+    /**
+     * Use axios to POST login & password data to the API
+     * If response we add the jwtToken to the localStorage and we return the response
+     * Otherwise we return the error
+     * @param {string} login login
+     * @param {string} password password
+     * @return {Object}
+     */
     userLogin(login, password) {
         return axios
             .post(API_URL_USER_LOGIN, {
@@ -24,6 +32,12 @@ class ApiProvider {
             })
     }
 
+    /**
+     * Use axios to POST the jwtToken to the API to retrieve user information
+     * If response, return the response
+     * Otherwise, return the error
+     * @return {Object}
+     */
     getUserProfile() {    
         return axios
             .post(
@@ -32,7 +46,7 @@ class ApiProvider {
                 {
                     headers: {
                         Authorization: `Bearer ` + localStorage.getItem('jwtToken'),
-                    }
+                    },
                 }
             )
             .then(function (response) {
@@ -43,6 +57,14 @@ class ApiProvider {
             });
     }
 
+    /**
+     * Use axios to PUT the data 'firstName' & 'lastName' to the API in order to update the data
+     * If response, return response
+     * Otherwise, return the error
+     * @param {string} firstName firstName
+     * @param {string} lastName lastName
+     * @return {Object}
+     */
     setUserProfile(firstName, lastName) {    
         return axios
             .put(
