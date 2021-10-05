@@ -1,15 +1,17 @@
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import Footer from 'components/Footer/Footer';
 import Header from 'components/Header/Header';
 import Login from 'pages/Login/Login';
+import LogInJWT from 'utils/storage/LogInJWT';
 import PropTypes from 'prop-types';
 import React from 'react';
-import 'router/App.css';
 import { routes } from 'router/routes';
 import { SubRoutes } from 'router/SubRoutes';
 
 function App(props) {
+    LogInJWT();
+
     return (
         <div className="App">
             <Router>

@@ -23,3 +23,18 @@ html {
   white-space: nowrap;
   width: 1px;
 }
+
+.App {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  min-height: 100vh;
+}
+
+.backgroundDark {
+  background-color: #12002b;
+}
+
+.main {
+  flex: 1;
+}

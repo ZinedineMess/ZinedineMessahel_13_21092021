@@ -7,13 +7,13 @@ import {
 class ApiProvider {
     /**
      * Use axios to POST login & password data to the API
-     * If response we add the jwtToken to the localStorage and we return the response
+     * If response & remember is checked, we add the JWToken to the localStorage and return the response
      * Otherwise we return the error
      * @param {string} login login
      * @param {string} password password
      * @return {Object}
      */
-    userLogin(login, password) {
+    userLogIn(login, password, remember) {
         return axios
             .post(API_URL_USER_LOGIN, {
                 email: login,
@@ -21,7 +21,9 @@ class ApiProvider {
             })
             .then(function (response) {
                 if (response.data.body.token) {
-                    localStorage.setItem('jwtToken', response.data.body.token);
+                    if (remember) {
+                        localStorage.setItem('jwtToken', response.data.body.token)
+                    }
                     return response;
                 }
             })
@@ -33,19 +35,19 @@ class ApiProvider {
     }
 
     /**
-     * Use axios to POST the jwtToken to the API to retrieve user information
+     * Use axios to POST the JWToken to the API to retrieve user information
      * If response, return the response
      * Otherwise, return the error
      * @return {Object}
      */
-    getUserProfile() {    
+    getUserProfile(jwToken) {    
         return axios
             .post(
                 API_URL_USER_PROFILE,
                 {},
                 {
                     headers: {
-                        Authorization: `Bearer ` + localStorage.getItem('jwtToken'),
+                        Authorization: `Bearer ` + jwToken,
                     },
                 }
             )
@@ -65,14 +67,14 @@ class ApiProvider {
      * @param {string} lastName lastName
      * @return {Object}
      */
-    setUserProfile(firstName, lastName) {    
+    setUserProfile(firstName, lastName, jwToken) {    
         return axios
             .put(
                 API_URL_USER_PROFILE,
                 { firstName, lastName },
                 {
                     headers: {
-                        Authorization: `Bearer ` + localStorage.getItem('jwtToken'),
+                        Authorization: `Bearer ` + jwToken,
                     }
                 }
             )

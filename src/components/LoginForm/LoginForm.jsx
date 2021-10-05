@@ -1,9 +1,10 @@
 import ApiProvider from 'services/ApiProvider/ApiProvider';
 import Button from 'components/Button/Button';
 import 'components/LoginForm/LoginForm.css';
+import getLocalStorageKey from 'utils/storage/storage';
 import Input from 'components/Input/Input';
-import { logIn } from 'utils/features/userSlice';
-import React, { useState } from 'react';
+import { logIn } from 'redux/features/userSlice';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
 
@@ -11,7 +12,9 @@ function LoginForm() {
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
-
+    const [remember, setRemember] = useState(
+        getLocalStorageKey('rememberUser', false)
+    );
     let history = useHistory();
     const dispatch = useDispatch();
 
@@ -25,8 +28,8 @@ function LoginForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setErrorMessage('');
-        // Send POST request
-        const response = await new ApiProvider().userLogin(userName, password);
+        // POST request
+        const response = await new ApiProvider().userLogIn(userName, password, remember);
 
         if (userName.trim().length === 0 || password.length === 0) {
             return setErrorMessage('Please fill in all fields');
@@ -38,6 +41,14 @@ function LoginForm() {
         dispatch(logIn(response.data.body.token));
         history.push('/user/profile');
     }
+
+    /**
+     * Store the localStorage if the user has checked the 'Remember Me' box
+     * @return {void}
+     */ 
+    useEffect(() => {
+        localStorage.setItem('rememberUser', JSON.stringify(remember))
+    }, [remember]);
 
     return (
         <form onSubmit={handleSubmit}>
@@ -65,6 +76,10 @@ function LoginForm() {
                 <input 
                     type='checkbox' 
                     id='remember-me' 
+                    checked={remember}
+                    onChange={() => {
+                        setRemember(!remember)
+                    }}
                 />
                 <label htmlFor='remember-me'>Remember me</label>
             </div>

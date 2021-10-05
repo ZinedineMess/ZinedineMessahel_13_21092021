@@ -23,6 +23,7 @@ const { actions, reducer } = createSlice ({
             state.connected = false;
             state.token = 0;
             state.user = '';
+            localStorage.clear();
         },
     }
 });

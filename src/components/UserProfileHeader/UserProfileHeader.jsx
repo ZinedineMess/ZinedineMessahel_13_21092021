@@ -3,7 +3,8 @@ import Button from 'components/Button/Button';
 import 'components/UserProfileHeader/UserProfileHeader.css';
 import { connect } from 'react-redux';
 import Input from 'components/Input/Input';
-import { setUser, updateUser } from 'utils/features/userSlice';
+import PropTypes from 'prop-types';
+import { setUser, updateUser } from 'redux/features/userSlice';
 import { useDispatch } from 'react-redux';
 import React, { Fragment, useState, useEffect } from 'react';
 
@@ -25,7 +26,7 @@ function UserProfileHeader(props) {
          */
         const getProfile = async (e) => {
             // POST request
-            const response = await new ApiProvider().getUserProfile();
+            const response = await new ApiProvider().getUserProfile(props.token);
 
             if (response.status !== 200) {
                 return setErrorMessage('Error user : ' + response.statusText);
@@ -37,7 +38,7 @@ function UserProfileHeader(props) {
             setErrorMessage('');
         }
         getProfile();
-    }, [dispatch]);
+    }, [dispatch, props.token]);
 
     /**
      * Sends' 'firstName' & 'lastName' data to the ApiProvider, which will execute a POST request to the ArgentBank API
@@ -46,8 +47,8 @@ function UserProfileHeader(props) {
      * @return {void}
      */
     async function changeUserProfile() {
-        // Send PUT request
-        const response = await new ApiProvider().setUserProfile(firstName, lastName);
+        // PUT request
+        const response = await new ApiProvider().setUserProfile(firstName, lastName, props.token);
         
         if (response.status !== 200) {
             return setErrorMessage('Error updating user : ' + response.statusText);
@@ -104,6 +105,10 @@ function UserProfileHeader(props) {
             )}
         </section>
     );
+}
+
+UserProfileHeader.propTypes = {
+    token : PropTypes.string.isRequired,
 }
 
 const mapStateToProps = state => {
