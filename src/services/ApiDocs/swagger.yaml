@@ -1,5 +1,4 @@
----
-swagger: "2.0"
+swagger: '2.0'
 info:
   description: Possible API endpoints for phase two of Argent Bank project.
   version: 1.0.0
@@ -8,153 +7,147 @@ info:
 host: virtserver.swaggerhub.com
 basePath: /ZinedineMESSAHEL/argentBank/1.0.0
 schemes:
-- https
-- http
-
+  - https
+  - http
 paths:
-  /user/accounts:
+  /accounts:
     get:
       tags:
-      - User Accounts
+        - User Accounts
       summary: Summary of user's accounts
       description: Get user's account summary
       produces:
-      - application/json
+        - application/json
       parameters:
-      - name: Authorization
-        in: header
-        description: Attach Bearer JWT token
-        required: true
-        type: string
+        - name: Authorization
+          in: header
+          description: Attach Bearer JWT token
+          required: true
+          type: string
       responses:
-        "200":
+        '200':
           description: User accounts details retrieved succesfully
           schema:
             $ref: '#/definitions/Accounts_Response'
-        "400":
+        '400':
           description: Invalid Token
-        "500":
+        '500':
           description: Internal Server Error
       security:
-      - Bearer: []
-
-  /user/account/{accountId}/transactions:
+        - Bearer: []
+  /accounts/{accountId}/transactions:
     get:
       tags:
-      - User Transactions
-      summary: Transactions for the selected type of account
+        - User Accounts Transactions
+      summary: Transactions for the selected account
       description: Get account transactions
       operationId: userTransaction
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - name: Authorization
-        in: header
-        description: Attach Bearer JWT token
-        required: true
-        type: string
-      - name: accountId
-        in: path
-        description: ID of the account to get
-        required: true
-        type: integer
+        - name: Authorization
+          in: header
+          description: Attach Bearer JWT token
+          required: true
+          type: string
+        - name: accountId
+          in: path
+          description: ID of the account to get
+          required: true
+          type: integer
       responses:
-        "200":
+        '200':
           description: User transactions retrieved succesfully
           schema:
             $ref: '#/definitions/Transactions_Response'
-        "400":
+        '400':
           description: Invalid Fields
-        "500":
+        '500':
           description: Internal Server Error
       security:
-      - Bearer: []
-
-  /user/account/{accountId}/transactions/{transactionId}:
+        - Bearer: []
+  /accounts/{accountId}/transactions/{transactionId}:
     get:
       tags:
-      - User Transactions Details
+        - User Account Transactions Details
       summary: Transaction details for the selected transaction ID
       description: Get details for the selected transaction
       operationId: userTransactionDetail
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - name: Authorization
-        in: header
-        description: Attach Bearer JWT token
-        required: true
-        type: string
-      - name: accountId
-        in: path
-        description: ID of the account to get
-        required: true
-        type: integer
-      - name: transactionId
-        in: path
-        description: ID of the transaction to get
-        required: true
-        type: integer
+        - name: Authorization
+          in: header
+          description: Attach Bearer JWT token
+          required: true
+          type: string
+        - name: accountId
+          in: path
+          description: ID of the account to get
+          required: true
+          type: integer
+        - name: transactionId
+          in: path
+          description: ID of the transaction to get
+          required: true
+          type: integer
       responses:
-        "200":
+        '200':
           description: User transaction details retrieved succesfully
           schema:
             $ref: '#/definitions/Transaction_Details_Response'
-        "400":
+        '400':
           description: Invalid Fields
-        "500":
+        '500':
           description: Internal Server Error
       security:
-      - Bearer: []
-
+        - Bearer: []
     put:
       tags:
-      - User Transactions Details
+        - User Account Transactions Details
       summary: Update transaction details
       description: Update details for the selected transaction
       operationId: userTransactionDetailUpdate
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - name: Authorization
-        in: header
-        description: Attach Bearer JWT token
-        required: true
-        type: string
-      - name: accountId
-        in: path
-        description: ID of the account to get
-        required: true
-        type: integer
-      - name: transactionId
-        in: path
-        description: ID of the transaction to get
-        required: true
-        type: integer
+        - name: Authorization
+          in: header
+          description: Attach Bearer JWT token
+          required: true
+          type: string
+        - name: accountId
+          in: path
+          description: ID of the account to get
+          required: true
+          type: integer
+        - name: transactionId
+          in: path
+          description: ID of the transaction to get
+          required: true
+          type: integer
       responses:
-        "200":
+        '200':
           description: Transaction details updated succesfully
           schema:
             $ref: '#/definitions/Transaction_Details_Response'
-        "400":
+        '400':
           description: Invalid Fields
-        "500":
+        '500':
           description: Internal Server Error
       security:
-      - Bearer: []
-
+        - Bearer: []
 securityDefinitions:
   Bearer:
     type: apiKey
     name: Authorization
     in: header
-
 definitions:
   Accounts_Response:
     type: object
@@ -168,7 +161,6 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/Account'
-
   Transactions_Response:
     type: object
     properties:
@@ -181,7 +173,6 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/Transaction'
-
   Transaction_Details_Response:
     type: object
     properties:
@@ -194,7 +185,6 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/Transaction_Details'
-
   Account:
     type: object
     properties:
@@ -203,7 +193,6 @@ definitions:
         description: account ID
       transaction:
         $ref: '#/definitions/Account_transaction'
-
   Transaction:
     type: object
     properties:
@@ -212,7 +201,6 @@ definitions:
         description: Transaction ID
       transaction:
         $ref: '#/definitions/Transaction_transaction'
-
   Transaction_Details:
     type: object
     properties:
@@ -225,7 +213,6 @@ definitions:
       note:
         type: string
         description: User's notes for the transaction
-
   Account_transaction:
     type: object
     properties:
@@ -237,11 +224,10 @@ definitions:
         example: Bank Account
       balance:
         type: number
-        example: 1234.0
+        example: 1234
       currency:
         type: string
         example: €
-        
   Transaction_transaction:
     type: object
     properties:

@@ -2,11 +2,11 @@ import 'components/Header/Header.css';
 import { connect, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import logo from 'assets/logo.png';
-import { logOut } from 'redux/features/userSlice';
+import { logOut } from 'utils/features/userSlice';
 import PropTypes from 'prop-types';
 import React, { Fragment } from 'react';
 
-function Header(props) {
+const Header = (props) => {
     const dispatch = useDispatch();
 
     return (
@@ -22,7 +22,7 @@ function Header(props) {
                 ? (
                     <Fragment>
                         <div>
-                            <Link to='/user/profile' className='mainNavItem' >
+                            <Link to='/profile' className='mainNavItem' >
                                 <i className='fa fa-user-circle'></i>
                                 {props.user.firstName}
                             </Link>

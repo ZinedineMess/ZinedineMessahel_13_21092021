@@ -2,7 +2,7 @@ import 'components/FeatureItem/FeatureItem.css';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-function FeatureItem({imgSrc, imgAlt, title, description}) {
+const FeatureItem = ({imgSrc, imgAlt, title, description}) => {
     return (
         <article className='featureItem'>
             <img src={imgSrc} className='featureIcon' alt={imgAlt}/>

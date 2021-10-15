@@ -9,7 +9,7 @@ import React from 'react';
 import { routes, routesApiDocs } from 'router/routes';
 import { SubRoutes } from 'router/SubRoutes';
 
-function App(props) {
+const App = (props) => {
     // to establish the path to the API documentation
     routesApiDocs();
     // to log in the user using the JWT Token

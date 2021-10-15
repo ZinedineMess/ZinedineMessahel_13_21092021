@@ -3,7 +3,7 @@ import Card from 'components/Card/Card';
 import UserProfileHeader from 'components/UserProfileHeader/UserProfileHeader';
 import React from 'react';
 
-function Profile() {
+const Profile = () => {
     return (
         <main className='main backgroundDark'>
             <UserProfileHeader />

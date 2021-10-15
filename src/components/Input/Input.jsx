@@ -2,7 +2,7 @@ import 'components/Input/Input.css';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-function Input({ className, type, placeholder, autoComplete, value, action}) {
+const Input = ({ className, type, placeholder, autoComplete, value, action}) => {
     return (
         <input 
             className={className} 

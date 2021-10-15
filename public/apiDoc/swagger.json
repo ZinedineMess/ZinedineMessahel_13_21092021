@@ -14,7 +14,7 @@
   ],
 
   "paths": {
-    "/user/accounts": {
+    "/accounts": {
       "get": {
         "tags": [
           "User Accounts"
@@ -55,12 +55,12 @@
       }
     },
 
-    "/user/account/{accountId}/transactions": {
+    "/accounts/{accountId}/transactions": {
       "get": {
         "tags": [
-          "User Transactions"
+          "User Accounts Transactions"
         ],
-        "summary": "Transactions for the selected type of account",
+        "summary": "Transactions for the selected account",
         "description": "Get account transactions",
         "operationId": "userTransaction",
         "consumes": [
@@ -107,10 +107,10 @@
       }
     },
 
-    "/user/account/{accountId}/transactions/{transactionId}": {
+    "/accounts/{accountId}/transactions/{transactionId}": {
       "get": {
         "tags": [
-          "User Transactions Details"
+          "User Account Transactions Details"
         ],
         "summary": "Transaction details for the selected transaction ID",
         "description": "Get details for the selected transaction",
@@ -167,7 +167,7 @@
 
       "put": {
         "tags": [
-          "User Transactions Details"
+          "User Account Transactions Details"
         ],
         "summary": "Update transaction details",
         "description": "Update details for the selected transaction",

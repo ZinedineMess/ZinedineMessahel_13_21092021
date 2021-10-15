@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 
-export function SubRoutes(route) {
+export const SubRoutes = (route) => {
     return (
         <Route
             exact={route.exact}

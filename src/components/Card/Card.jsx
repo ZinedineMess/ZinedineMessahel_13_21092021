@@ -3,7 +3,7 @@ import 'components/Card/Card.css';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-function Card({title, amount, description}) {
+const Card = ({title, amount, description}) => {
     return (
         <section className='account'>
             <article className='accountContentWrapper'>

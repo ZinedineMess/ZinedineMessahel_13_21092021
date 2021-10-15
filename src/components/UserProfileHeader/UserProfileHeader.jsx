@@ -4,11 +4,11 @@ import 'components/UserProfileHeader/UserProfileHeader.css';
 import { connect } from 'react-redux';
 import Input from 'components/Input/Input';
 import PropTypes from 'prop-types';
-import { setUser, updateUser } from 'redux/features/userSlice';
+import { setUser, updateUser } from 'utils/features/userSlice';
 import { useDispatch } from 'react-redux';
 import React, { Fragment, useState, useEffect } from 'react';
 
-function UserProfileHeader(props) {
+const UserProfileHeader = (props) => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [errorMessage, setErrorMessage] = useState('');

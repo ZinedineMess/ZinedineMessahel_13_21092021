@@ -1,7 +1,7 @@
 import 'components/Banner/Banner.css';
 import React from 'react';
 
-function Banner() {
+const Banner = () => {
     return (
         <section className='hero'>
             <article className='heroContent'>

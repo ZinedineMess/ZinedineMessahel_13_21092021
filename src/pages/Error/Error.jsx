@@ -2,7 +2,7 @@ import Button from 'components/Button/Button';
 import { Link } from 'react-router-dom';
 import 'pages/Error/Error.css';
 
-function Error() {
+const Error = () => {
     return (
         <main className='error404Main'>
             <section className='errorMessagesContainer'>

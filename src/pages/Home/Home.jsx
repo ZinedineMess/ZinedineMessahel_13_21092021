@@ -3,7 +3,7 @@ import { FEATURES_CARDS_CONTENT } from 'utils/data/data';
 import FeatureItem from 'components/FeatureItem/FeatureItem';
 import React from 'react';
 
-function Home() {
+const Home = () => {
     return (
         <main>
             <Banner />

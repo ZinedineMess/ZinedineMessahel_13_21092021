@@ -3,17 +3,17 @@ import Button from 'components/Button/Button';
 import 'components/LoginForm/LoginForm.css';
 import getLocalStorageKey from 'utils/storage/storage';
 import Input from 'components/Input/Input';
-import { logIn } from 'redux/features/userSlice';
+import { logIn } from 'utils/features/userSlice';
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
 
-function LoginForm() {
+const LoginForm = () => {
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const [remember, setRemember] = useState(
-        getLocalStorageKey('rememberUser', false)
+        getLocalStorageKey('rememberUser', false),
     );
     let history = useHistory();
     const dispatch = useDispatch();
@@ -39,7 +39,7 @@ function LoginForm() {
         }
         
         dispatch(logIn(response.data.body.token));
-        history.push('/user/profile');
+        history.push('/profile');
     }
 
     /**

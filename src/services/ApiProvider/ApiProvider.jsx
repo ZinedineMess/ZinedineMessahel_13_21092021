@@ -7,7 +7,7 @@ import {
 class ApiProvider {
     /**
      * Use axios to POST login & password data to the API
-     * If response & remember is checked, we add the JWToken to the localStorage and return the response
+     * If response & remember is checked, we add the JWToken to the sessionStorage and return the response
      * Otherwise we return the error
      * @param {string} login login
      * @param {string} password password
@@ -22,7 +22,7 @@ class ApiProvider {
             .then(function (response) {
                 if (response.data.body.token) {
                     if (remember) {
-                        localStorage.setItem('jwtToken', response.data.body.token)
+                        sessionStorage.setItem('jwtToken', response.data.body.token)
                     }
                     return response;
                 }

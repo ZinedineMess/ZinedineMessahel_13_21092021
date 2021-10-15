@@ -16,7 +16,7 @@ export const routes = [{
         component: Login,
     },
     {
-        path: '/user/profile',
+        path: '/profile',
         exact: true,
         component: Profile,
         private: true,
