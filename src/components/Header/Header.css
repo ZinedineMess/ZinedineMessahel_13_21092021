@@ -1,0 +1,55 @@
+.fa-user-circle,
+.fa-sign-out-alt {
+    margin-right: .4rem;
+}
+
+.mainNav {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: .3125rem 1.25rem;
+}
+
+.mainNav a {
+    color: #2c3e50;
+    font-weight: 700;
+}
+
+.mainNav a.router-link-exact-active {
+    color: #42b983;
+}
+
+.mainNavItem {
+    margin-right: .5rem;
+    text-decoration: none;
+}
+
+.mainNavItem:hover {
+    text-decoration: underline;
+}
+
+.mainNavLogo {
+    align-items: center;
+    display: flex;
+}
+
+.mainNavLogoImage {
+    max-width: 100%;
+    width: 12.5rem;
+}
+
+.navLog {
+    display: flex;
+}
+
+@media (max-width: 720px) {
+    .navLog {
+        display: flex;
+        flex-direction: column;
+        font-size: .8rem;
+    }
+
+    .navLog div {
+        flex-direction: row;
+    }
+}

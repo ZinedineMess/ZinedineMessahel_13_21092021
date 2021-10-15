@@ -1,0 +1,45 @@
+.account {
+    align-items: center;
+    background-color: #fff;
+    border: .0625rem solid #000;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 auto 2rem;
+    padding: 1.5rem;
+    text-align: left;
+    width: 80%;
+}
+
+.accountAmount {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.accountAmountDescription {
+    margin: 0;
+}
+
+.accountContentWrapper {
+    flex: 1;
+    width: 100%;
+}
+
+.accountTitle {
+    font-size: 1rem;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+}
+
+@media (min-width: 720px) {
+    .account {
+        flex-direction: row;
+    }
+
+    .accountContentWrapper.cta {
+        flex: 0;
+    }
+}

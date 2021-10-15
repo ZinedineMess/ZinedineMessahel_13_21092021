@@ -1,0 +1,39 @@
+.buttonEdited {
+    margin-left: 1rem;
+}
+
+.editButton,
+.buttonEdited,
+.errorMessagesContainer button {
+    background-color: #00bc77;
+    border-color: #00bc77;
+    border-radius: .3125rem;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: .625rem;
+    padding: .625rem;
+}
+
+.errorMessagesContainer button {
+    margin: 4rem 0 0;
+}
+
+.signInButton,
+.transactionButton {
+    background-color: #00bc77;
+    border-color: #00bc77;
+    color: #fff;
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-top: 1rem;
+    padding: .5rem;
+    width: 100%;
+}
+
+@media (min-width: 720px) {
+    .transactionButton {
+        width: 12.5rem;
+    }
+}

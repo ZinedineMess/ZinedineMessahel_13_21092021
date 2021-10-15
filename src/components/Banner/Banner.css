@@ -1,0 +1,52 @@
+.hero {
+    background-image: url(assets/treeBanner.jpeg);
+    background-position: 0 -3.125rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 18.75rem;
+    position: relative;
+}
+
+.heroContent {
+    background: #FFF;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    text-align: left;
+    top: 2rem;
+    width: 12.5rem;
+}
+
+.heroContent .subtitle {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.heroContent .text {
+    font-size: .9rem;
+    margin-bottom: 0;
+}
+
+@media (min-width: 920px) {
+    .hero {
+        background-position: 0 33%;
+        height: 25rem;
+    }
+
+    .heroContent {
+        margin: 2rem;
+        position: absolute;
+        right: 3.125rem;
+        top: 3.125rem;
+        width: 18.75rem;
+    }
+
+    .heroContent .subtitle {
+        font-size: 1.5rem;
+    }
+
+    .heroContent .text {
+        font-size: 1.2rem;
+    }
+}
