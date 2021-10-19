@@ -26,11 +26,6 @@ export const routes = [{
         exact: false,
         component: Error,
     },
-    {
-        path: '/api-docs',
-        exact: true,
-        component: SwaggerApiDoc,
-    },
 ];
 
 export const MatchedRoutes = (route) => {
