@@ -6,8 +6,7 @@ import Login from 'pages/Login/Login';
 import LogInJWT from 'utils/storage/LogInJWT';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { routes, routesApiDocs } from 'router/routes';
-import { SubRoutes } from 'router/SubRoutes';
+import { routes, MatchedRoutes, routesApiDocs } from 'router/routes';
 
 const App = (props) => {
     // to establish the path to the API documentation
@@ -25,7 +24,7 @@ const App = (props) => {
                             ? (
                                 <Login key={index} exact path={route.path} />
                             ) : (
-                                <SubRoutes key={index} {...route} />
+                                <MatchedRoutes key={index} {...route} />
                             )
                         )}
                     </Switch>
