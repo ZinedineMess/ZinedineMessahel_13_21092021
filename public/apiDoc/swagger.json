@@ -20,22 +20,20 @@
           "User Accounts"
         ],
         "summary": "Summary of user's accounts",
-        "description": "Get user's account summary",
+        "description": "Get user's accounts summary",
         "produces": [
           "application/json"
         ],
-        "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "description": "Attach Bearer JWT token",
-            "required": true,
-            "type": "string"
-          }
-        ],
+        "parameters": [{
+          "name": "Authorization",
+          "in": "header",
+          "description": "Attach Bearer JWT token",
+          "required": true,
+          "type": "string"
+        }],
         "responses": {
           "200": {
-            "description": "User accounts details retrieved succesfully",
+            "description": "User summary accounts retrieved succesfully",
             "schema": {
               "$ref": "#/definitions/Accounts_Response"
             }
@@ -47,11 +45,9 @@
             "description": "Internal Server Error"
           }
         },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
+        "security": [{
+          "Bearer": []
+        }]
       }
     },
 
@@ -69,8 +65,7 @@
         "produces": [
           "application/json"
         ],
-        "parameters": [
-          {
+        "parameters": [{
             "name": "Authorization",
             "in": "header",
             "description": "Attach Bearer JWT token",
@@ -87,7 +82,7 @@
         ],
         "responses": {
           "200": {
-            "description": "User transactions retrieved succesfully",
+            "description": "User account transactions retrieved succesfully",
             "schema": {
               "$ref": "#/definitions/Transactions_Response"
             }
@@ -99,11 +94,9 @@
             "description": "Internal Server Error"
           }
         },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
+        "security": [{
+          "Bearer": []
+        }]
       }
     },
 
@@ -121,8 +114,7 @@
         "produces": [
           "application/json"
         ],
-        "parameters": [
-          {
+        "parameters": [{
             "name": "Authorization",
             "in": "header",
             "description": "Attach Bearer JWT token",
@@ -158,11 +150,9 @@
             "description": "Internal Server Error"
           }
         },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
+        "security": [{
+          "Bearer": []
+        }]
       },
 
       "put": {
@@ -178,8 +168,7 @@
         "produces": [
           "application/json"
         ],
-        "parameters": [
-          {
+        "parameters": [{
             "name": "Authorization",
             "in": "header",
             "description": "Attach Bearer JWT token",
@@ -199,6 +188,15 @@
             "description": "ID of the transaction to get",
             "required": true,
             "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Update transaction details",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Transaction_Details"
+            }
           }
         ],
         "responses": {
@@ -215,11 +213,9 @@
             "description": "Internal Server Error"
           }
         },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
+        "security": [{
+          "Bearer": []
+        }]
       }
     }
   },
@@ -367,9 +363,9 @@
           "type": "string",
           "description": "Transaction description"
         },
-        "ammount": {
+        "amount": {
           "type": "number",
-          "description": "Transaction ammount"
+          "description": "Transaction amount"
         },
         "balance": {
           "type": "number",
